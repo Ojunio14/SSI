@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct1be75a8w2up"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubcbn"]
+albedo_color = Color(0.10559999, 0.16, 0.16, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2f7ak"]
+material = SubResource("StandardMaterial3D_ubcbn")
+size = Vector2(50, 50)
+
+[node name="TesteArea" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Node3D/CSGCombiner3D2"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D/CSGCombiner3D2/CSGCombiner3D"]
+size = Vector3(15, 5, 15)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D/CSGCombiner3D2/CSGCombiner3D"]
+operation = 2
+size = Vector3(14, 8, 14)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D/CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.505104, 0, 0)
+size = Vector3(14, 5, 14)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_2f7ak")
