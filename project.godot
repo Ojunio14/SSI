@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="Sistema_Solar_Industrial"
+run/main_scene="uid://dchqj8u8twbrh"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+BuildingManager="*res://scripts/global/BuildingManager.gd"
