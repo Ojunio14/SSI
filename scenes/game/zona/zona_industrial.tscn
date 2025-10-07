@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://f7d165anwut2"]
+
+[ext_resource type="Script" uid="uid://biybta61iha32" path="res://scripts/zonas/zona_industrial.gd" id="1_teitx"]
+[ext_resource type="PackedScene" uid="uid://dl40hsv77fwlj" path="res://teste/zona_inicial.tscn" id="5_8hht8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ls7b6"]
+transparency = 1
+albedo_color = Color(0.16974999, 0.42, 0.147, 0.36078432)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ls7b6"]
+material = SubResource("StandardMaterial3D_ls7b6")
+size = Vector3(30, 5, 30)
+
+[node name="Zona_industrial" type="Node3D"]
+script = ExtResource("1_teitx")
+tipo_de_zona = 3
+metadata/_custom_type_script = "uid://htbmgda2uq1m"
+
+[node name="PhysicsZone" type="Node3D" parent="."]
+
+[node name="VisualZone" type="Node3D" parent="."]
+
+[node name="ZonaInicial" parent="." instance=ExtResource("5_8hht8")]
+
+[node name="Teste_arrea_zona" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ls7b6")

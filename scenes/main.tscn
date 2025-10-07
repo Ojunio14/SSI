@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dchqj8u8twbrh"]
+[gd_scene load_steps=10 format=3 uid="uid://dchqj8u8twbrh"]
 
 [ext_resource type="PackedScene" uid="uid://ct1be75a8w2up" path="res://teste/teste_area.tscn" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://c0m2sb8bol8po" path="res://scenes/ui/build_menu/build_menu.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://duxv2s0pxm58g" path="res://scenes/player/camera/camera_orthogonal.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://f7d165anwut2" path="res://scenes/game/zona/zona_industrial.tscn" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://be55s3lq4r5m6" path="res://scripts/world_interaction/world_interaction.gd" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dphhrl0dxvx81" path="res://scenes/ui/ui_zona/ui_zona.tscn" id="6_tefeu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -31,6 +34,16 @@ shadow_enabled = true
 [node name="TesteArea" parent="World" instance=ExtResource("1_0wfyh")]
 
 [node name="Camera_Orthogonal" parent="World" instance=ExtResource("2_sugp2")]
+max_zoom = 20.0
+min_zoom = 10.0
+
+[node name="Teste_Contrucacao" type="Node3D" parent="World"]
+
+[node name="Zonas" type="Node3D" parent="World/Teste_Contrucacao" groups=["Zonas"]]
+
+[node name="Zona" parent="World/Teste_Contrucacao/Zonas" instance=ExtResource("3_tbgi4")]
+
+[node name="fantasma" type="Node3D" parent="World/Teste_Contrucacao"]
 
 [node name="Ui" type="CanvasLayer" parent="."]
 
@@ -42,5 +55,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="FPS" type="Label" parent="Ui/Main"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0w"
+
+[node name="Ui_Zona" parent="Ui/Main" instance=ExtResource("6_tefeu")]
+layout_mode = 1
+
 [node name="BuildMenu" parent="Ui/Main" instance=ExtResource("1_o5qli")]
 layout_mode = 1
+
+[node name="outros" type="Node" parent="."]
+
+[node name="WorldInteraction" type="Node" parent="outros"]
+script = ExtResource("5_tbgi4")

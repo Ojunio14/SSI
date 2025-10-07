@@ -30,6 +30,7 @@ func _ready():
 	pass
 
 func _input(event):
+
 #	if event.is_action_pressed("Z"):
 #		num += 45
 #		Rotation_Camera.y = num

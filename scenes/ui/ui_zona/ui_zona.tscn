@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dphhrl0dxvx81"]
+
+[ext_resource type="Script" uid="uid://3hhotlabaxol" path="res://scripts/ui/ui_zonas/zona_industrial/ui_zonas.gd" id="1_68fq4"]
+[ext_resource type="PackedScene" uid="uid://bt5ttgsgwf5hp" path="res://scenes/ui/ui_zona/janelas_info/zona_industrial/zona_industrial_config.tscn" id="1_sqsx3"]
+[ext_resource type="PackedScene" uid="uid://d041cdoru2ft1" path="res://scenes/ui/ui_zona/janelas_info/zona_industrial/zona_industrial_construcao.tscn" id="3_68fq4"]
+
+[node name="Ui_Zona" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_68fq4")
+
+[node name="zona_industrial_construcao" parent="." instance=ExtResource("3_68fq4")]
+visible = false
+layout_mode = 1
+
+[node name="Zona_Industrial_Config" parent="." instance=ExtResource("1_sqsx3")]
+layout_mode = 1

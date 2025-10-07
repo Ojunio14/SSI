@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://d041cdoru2ft1"]
+
+[node name="zona_industrial_construcao" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.095
+offset_top = 40.0
+offset_right = -799.90454
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HFlowContainer" type="VFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HFlowContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="HFlowContainer/VBoxContainer"]
+layout_mode = 2
+text = "teste"
+
+[node name="GridContainer" type="GridContainer" parent="HFlowContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+columns = 4
+
+[node name="Button" type="Button" parent="HFlowContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="HFlowContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="HFlowContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="HFlowContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button5" type="Button" parent="HFlowContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button6" type="Button" parent="HFlowContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="HFlowContainer/VBoxContainer2"]
+layout_mode = 2
+text = "teste"
+
+[node name="GridContainer" type="GridContainer" parent="HFlowContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+columns = 4
+
+[node name="Button" type="Button" parent="HFlowContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="HFlowContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="HFlowContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="HFlowContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button5" type="Button" parent="HFlowContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button6" type="Button" parent="HFlowContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="HFlowContainer/VBoxContainer3"]
+layout_mode = 2
+text = "teste"
+
+[node name="GridContainer" type="GridContainer" parent="HFlowContainer/VBoxContainer3"]
+visible = false
+layout_mode = 2
+columns = 4
+
+[node name="Button" type="Button" parent="HFlowContainer/VBoxContainer3/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="HFlowContainer/VBoxContainer3/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="HFlowContainer/VBoxContainer3/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="HFlowContainer/VBoxContainer3/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button5" type="Button" parent="HFlowContainer/VBoxContainer3/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button6" type="Button" parent="HFlowContainer/VBoxContainer3/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

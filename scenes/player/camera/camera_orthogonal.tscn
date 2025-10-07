@@ -6,8 +6,10 @@
 script = ExtResource("1_1tttk")
 
 [node name="InnerGimbal" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 20, 10)
 
-[node name="Camera" type="Camera3D" parent="InnerGimbal"]
-transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 10, 15, 10)
+[node name="Camera" type="Camera3D" parent="InnerGimbal" groups=["CameraWorld"]]
+transform = Transform3D(0.7071067, -0.49999994, 0.49999994, 0, 0.7071067, 0.7071067, -0.7071067, -0.49999994, 0.49999994, 0, 0, 0)
 projection = 1
-size = 10.0
+size = 6.0
+far = 135.32

@@ -1,0 +1,107 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt5ttgsgwf5hp"]
+
+[ext_resource type="Script" uid="uid://vsvvvqwefdye" path="res://scripts/ui/ui_zonas/zona_industrial/zona_industrial_config.gd" id="1_esgw8"]
+
+[node name="Zona_Industrial_Config" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 800.0
+offset_top = 40.0
+offset_right = -2.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_esgw8")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Config_Inicial" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Config_Inicial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Config_Inicial/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Industria"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Config_Inicial/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Config_Inicial/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Tipo da industria"
+
+[node name="Menu_Tipo_Industrias" type="OptionButton" parent="Config_Inicial/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "Metalurgia"
+popup/item_0/id = 0
+popup/item_1/text = "Quimica"
+popup/item_1/id = 1
+popup/item_2/text = "eletrica"
+popup/item_2/id = 2
+popup/item_3/text = "    "
+popup/item_3/id = 3
+
+[node name="TextEdit" type="TextEdit" parent="Config_Inicial/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="VBoxEspecializacao" type="VBoxContainer" parent="Config_Inicial/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Config_Inicial/VBoxContainer/VBoxEspecializacao"]
+layout_mode = 2
+text = "Especialização da Industria"
+
+[node name="OptionButton" type="OptionButton" parent="Config_Inicial/VBoxContainer/VBoxEspecializacao"]
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "siderugia"
+popup/item_0/id = 0
+popup/item_1/text = "Cobre"
+popup/item_1/id = 1
+popup/item_2/text = "teste"
+popup/item_2/id = 2
+popup/item_3/text = "teste"
+popup/item_3/id = 3
+
+[node name="TextEdit" type="TextEdit" parent="Config_Inicial/VBoxContainer/VBoxEspecializacao"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Aço"
+
+[node name="Confirmar" type="Button" parent="Config_Inicial/VBoxContainer"]
+layout_mode = 2
+text = "Confirmar"
+
+[node name="Control2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 200.00024
+offset_top = 37.412506
+offset_right = 500.0005
+offset_bottom = 482.23752
+
+[connection signal="button_down" from="Config_Inicial/VBoxContainer/Confirmar" to="." method="_on_confirmar_button_down"]
