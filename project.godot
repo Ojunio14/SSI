@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 GameManager="*res://scripts/global/GameManager.gd"
 BuildManager="*res://scripts/global/BuildManager.gd"
 ZonaUiManager="*res://scripts/global/ZonaUiManager.gd"
+GridManager="*res://scripts/global/GridManager.gd"
+
+[display]
+
+window/size/viewport_height=720
 
 [global_group]
 
@@ -28,6 +33,7 @@ ControlZona=""
 Eventos="capitura eventos do mouse e teclado"
 CameraWorld=""
 TerrenoShader=""
+UiZona=""
 
 [input]
 

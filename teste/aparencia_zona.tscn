@@ -1,0 +1,101 @@
+[gd_scene load_steps=16 format=3 uid="uid://dl40hsv77fwlj"]
+
+[ext_resource type="Script" uid="uid://djkynl08racn7" path="res://scripts/zonas/aparencia_zona.gd" id="1_5ahrg"]
+[ext_resource type="Shader" uid="uid://xeb1vr6kitix" path="res://teste/Grid.gdshader" id="2_3t6fh"]
+[ext_resource type="PackedScene" uid="uid://dtu3ay8rvpse2" path="res://teste/muro_teste.tscn" id="2_tsle8"]
+[ext_resource type="Shader" uid="uid://bugvr1kfm3jee" path="res://teste/Rect.gdshader" id="3_tsle8"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5clv7"]
+size = Vector2(32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kdv73"]
+render_priority = 0
+shader = ExtResource("2_3t6fh")
+shader_parameter/albedo = Color(0, 0, 0, 1)
+shader_parameter/show_grid = false
+shader_parameter/grid_color = Color(1, 1, 1, 1)
+shader_parameter/grid_size = 1.0
+shader_parameter/line_thickness = 0.05
+shader_parameter/is_selecting_area = false
+shader_parameter/selection_start_pos = Vector3(1.245, 0, 0)
+shader_parameter/selection_end_pos = Vector3(0, 0, 0)
+shader_parameter/selection_color = Color(0.2, 0.8, 1, 0.4)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5clv7"]
+render_priority = 0
+shader = ExtResource("3_tsle8")
+shader_parameter/border_thickness = 0.00999999977648
+shader_parameter/dot_spacing = 29.30800115463
+shader_parameter/opacity = 1.0
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/rotation_speed = 0.0350000016625
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p1i24"]
+material = SubResource("ShaderMaterial_5clv7")
+size = Vector2(32, 32)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f6fpc"]
+size = Vector3(32, 5, 32)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3t6fh"]
+transparency = 1
+albedo_color = Color(0.45, 0, 0, 0.6901961)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tsle8"]
+material = SubResource("StandardMaterial3D_3t6fh")
+size = Vector3(32, 5, 32)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6fpc"]
+render_priority = 1
+transparency = 1
+albedo_color = Color(0.0114, 0.19, 0.02628332, 0.7411765)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kdv73"]
+material = SubResource("StandardMaterial3D_f6fpc")
+size = Vector3(30, 5, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tsle8"]
+transparency = 1
+albedo_color = Color(0, 0.26, 0.030333364, 0.6431373)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i1yqp"]
+material = SubResource("StandardMaterial3D_tsle8")
+size = Vector3(32, 5, 32)
+
+[node name="Aparencia_zona" type="Node3D"]
+script = ExtResource("1_5ahrg")
+modelo_muro = ExtResource("2_tsle8")
+
+[node name="Grid" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275, 0)
+visible = false
+mesh = SubResource("PlaneMesh_5clv7")
+surface_material_override/0 = SubResource("ShaderMaterial_kdv73")
+
+[node name="LineRect" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.085, 0)
+visible = false
+mesh = SubResource("PlaneMesh_p1i24")
+
+[node name="ZonaMain" type="Area3D" parent="." groups=["ZonaMain"]]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaMain"]
+shape = SubResource("BoxShape3D_f6fpc")
+
+[node name="MurosContainer" type="Node3D" parent="."]
+visible = false
+
+[node name="Modo_Fantasma_Vermelho" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_tsle8")
+skeleton = NodePath("../Fantasma")
+
+[node name="Fantasma" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_kdv73")
+
+[node name="Modo_Fantasma_Verde" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_i1yqp")

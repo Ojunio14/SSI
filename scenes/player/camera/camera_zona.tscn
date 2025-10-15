@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://duxv2s0pxm58g"]
+[gd_scene load_steps=2 format=3 uid="uid://1n54hinif2ot"]
 
-[ext_resource type="Script" uid="uid://c1nha4jbogvfb" path="res://scripts/player/camera/CameraOrthogonal.gd" id="1_1tttk"]
+[ext_resource type="Script" uid="uid://f13k2gsgu41q" path="res://scripts/player/camera/camera_zona.gd" id="1_yptmr"]
 
-[node name="Camera_Orthogonal" type="Node3D"]
-script = ExtResource("1_1tttk")
+[node name="Camera_Zona" type="Node3D"]
+script = ExtResource("1_yptmr")
+speed = 8.0
+suavidade = 2.0
 
 [node name="InnerGimbal" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 20, 10)
@@ -11,6 +13,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 20, 10)
 [node name="Camera" type="Camera3D" parent="InnerGimbal" groups=["CameraWorld"]]
 transform = Transform3D(0.7071067, -0.49999994, 0.49999994, 0, 0.7071067, 0.7071067, -0.7071067, -0.49999994, 0.49999994, 0, 0, 0)
 projection = 1
-current = true
 size = 6.0
 far = 135.32

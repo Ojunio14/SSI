@@ -169,7 +169,6 @@ layout_mode = 2
 text = "Zona3"
 
 [node name="Area2D" type="Area2D" parent="ControlZona"]
-visible = false
 position = Vector2(10, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ControlZona/Area2D"]

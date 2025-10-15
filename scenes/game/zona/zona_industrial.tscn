@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://f7d165anwut2"]
+[gd_scene load_steps=6 format=3 uid="uid://f7d165anwut2"]
 
 [ext_resource type="Script" uid="uid://biybta61iha32" path="res://scripts/zonas/zona_industrial.gd" id="1_teitx"]
-[ext_resource type="PackedScene" uid="uid://dl40hsv77fwlj" path="res://teste/zona_inicial.tscn" id="5_8hht8"]
+[ext_resource type="PackedScene" uid="uid://1n54hinif2ot" path="res://scenes/player/camera/camera_zona.tscn" id="3_x5sb5"]
+[ext_resource type="PackedScene" uid="uid://dl40hsv77fwlj" path="res://teste/aparencia_zona.tscn" id="5_8hht8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ls7b6"]
 transparency = 1
@@ -13,14 +14,19 @@ size = Vector3(30, 5, 30)
 
 [node name="Zona_industrial" type="Node3D"]
 script = ExtResource("1_teitx")
-tipo_de_zona = 3
 metadata/_custom_type_script = "uid://htbmgda2uq1m"
 
 [node name="PhysicsZone" type="Node3D" parent="."]
 
 [node name="VisualZone" type="Node3D" parent="."]
 
-[node name="ZonaInicial" parent="." instance=ExtResource("5_8hht8")]
-
 [node name="Teste_arrea_zona" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_ls7b6")
+
+[node name="Aparencia_zona" parent="." instance=ExtResource("5_8hht8")]
+tamanho_peca_muro = 1.0
+
+[node name="Camera_Zona" parent="." instance=ExtResource("3_x5sb5")]
+max_zoom = 20.0
+min_zoom = 10.0

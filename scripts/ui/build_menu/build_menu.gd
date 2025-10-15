@@ -16,7 +16,7 @@ var IsZona : bool = false
 
 var fps_int : int = 0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	fps_int = Engine.get_frames_per_second()
 	fps.text = str(fps_int)
 	$MouseArea.global_position = get_viewport().get_mouse_position()
@@ -50,7 +50,3 @@ func _on_zona_button_down() -> void:
 	current_state_menu_edificios = MenuEdificios.Zona
 	IsZona = true
 	
-
-
-func _on_area_2d_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	pass # Replace with function body.

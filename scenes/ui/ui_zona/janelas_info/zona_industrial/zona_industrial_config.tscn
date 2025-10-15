@@ -1,17 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt5ttgsgwf5hp"]
+[gd_scene load_steps=3 format=3 uid="uid://bt5ttgsgwf5hp"]
 
 [ext_resource type="Script" uid="uid://vsvvvqwefdye" path="res://scripts/ui/ui_zonas/zona_industrial/zona_industrial_config.gd" id="1_esgw8"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esgw8"]
+size = Vector2(300, 550)
+
 [node name="Zona_Industrial_Config" type="Control"]
-visible = false
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 800.0
-offset_top = 40.0
-offset_right = -2.0
-offset_bottom = -108.0
+anchor_left = 0.73800004
+anchor_top = 0.062000003
+anchor_right = 0.998
+anchor_bottom = 0.81900007
+offset_left = -0.17602539
+offset_top = -4.640003
+offset_right = 0.30371094
+offset_bottom = 0.3199463
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_esgw8")
@@ -76,7 +79,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Especialização da Industria"
 
-[node name="OptionButton" type="OptionButton" parent="Config_Inicial/VBoxContainer/VBoxEspecializacao"]
+[node name="Menu_Produto" type="OptionButton" parent="Config_Inicial/VBoxContainer/VBoxEspecializacao"]
 layout_mode = 2
 item_count = 4
 popup/item_0/text = "siderugia"
@@ -104,4 +107,15 @@ offset_top = 37.412506
 offset_right = 500.0005
 offset_bottom = 482.23752
 
+[node name="Area2D" type="Area2D" parent="."]
+process_mode = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(150, 275)
+shape = SubResource("RectangleShape2D_esgw8")
+
+[connection signal="item_selected" from="Config_Inicial/VBoxContainer/VBoxContainer/Menu_Tipo_Industrias" to="." method="_on_menu_tipo_industrias_item_selected"]
+[connection signal="item_selected" from="Config_Inicial/VBoxContainer/VBoxEspecializacao/Menu_Produto" to="." method="_on_option_button_item_selected"]
 [connection signal="button_down" from="Config_Inicial/VBoxContainer/Confirmar" to="." method="_on_confirmar_button_down"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

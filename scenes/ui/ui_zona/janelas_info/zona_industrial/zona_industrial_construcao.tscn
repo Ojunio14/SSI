@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://d041cdoru2ft1"]
 
 [node name="zona_industrial_construcao" type="Control"]
+visible = false
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_top = 0.062000003
+anchor_right = 0.30600002
+anchor_bottom = 0.83300006
 offset_left = 2.095
-offset_top = 40.0
-offset_right = -799.90454
-offset_bottom = -108.0
+offset_top = -0.1760025
+offset_right = -0.41656494
+offset_bottom = 0.21594238
 grow_horizontal = 2
 grow_vertical = 2
 

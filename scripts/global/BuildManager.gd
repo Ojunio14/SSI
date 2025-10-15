@@ -2,13 +2,13 @@ extends Node3D
 
 #------------------------------PackedScene-------------------------------------------
 #Carregas Scenes das Towes
-#var BALISTA_TOWER : PackedScene = ResourceLoader.load("res://scene/scene_world/build/turret/balista/balista_lvl_1.tscn")#ResourceLoader.load("res://scene/scene_world/build/turret/balista/balista_lvl_1.tscn")
-#var WIZARD_TOWER : PackedScene = ResourceLoader.load("res://scene/scene_world/build/turret/Wizard/Wizard_lvl_1.tscn")
-#var ZONA_LEVEL_1 : PackedScene = ResourceLoader.load("res://teste/zona_1.tscn")
 var ZONA_MAIN : PackedScene = ResourceLoader.load("res://scenes/game/zona/zona_industrial.tscn")
 #CurrentSpawnable Variavel onde vai ter a Scene de uma Torre
 var CurrentSpawnable : Node3D#StaticBody3D
-var AbleBuilding : bool = true
+var AbleBuilding : bool  = true
+var AbleBuildingUi : bool  = true
+var BuildAtiva : = false
+
 
 #--------------------------------------------------------------
 
@@ -20,31 +20,24 @@ func _physics_process(_delta: float) -> void:
 			#CurrentSpawnable e uma Scene é vai receber a Position do mouse
 			#CurrentSpawnable.activeBuildingObject
 			CurrentSpawnable.global_position = Vector3(round(RayCast.x),RayCast.y,round(RayCast.z))#Vector3(vec3.x,0,vec3.z)
-			#CurrentSpawnable.activeBuildingObject = true
+			CurrentSpawnable.get_node("Aparencia_zona").activeBuildingObject = true
+			BuildAtiva = false
+			if AbleBuilding and AbleBuildingUi :
+				
+				if Input.is_action_just_pressed("MouseLeft") :
+					var obj := CurrentSpawnable.duplicate()
+					get_tree().root.get_node("Main/World/Teste_Contrucacao/Zonas").add_child(obj)
+					obj.get_node("Aparencia_zona").activeBuildingObject = false
+					obj.global_position = CurrentSpawnable.global_position
+					
 		#Destroy Scene que estiver recebendo as cordenadas do mouse 
 		if Input.is_action_just_pressed("destroy"):
-				
-				CurrentSpawnable.queue_free()
-				GameManager.CurrentState = GameManager.State.Play
+			BuildAtiva = true
+			CurrentSpawnable.queue_free()
+			GameManager.CurrentState = GameManager.State.Play
 		#Verifica se area das Construçoes nao estao se colidindo
-		if AbleBuilding:
-			if Input.is_action_just_pressed("MouseLeft") :
-				var obj := CurrentSpawnable.duplicate()
-				get_tree().root.get_node("Main/World/Teste_Contrucacao/Zonas").add_child(obj)
-				#obj.activeBuildingObject = false
-				obj.global_position = CurrentSpawnable.global_position
 
 #------------------------------Instanciaçao das Scenes-------------------------------------------
-
-#essas scenes vao ser chamadas nos Script Controle_de_Compra
-#func Spawn_Balista_tower() -> void:
-	#SpawnOBj(BALISTA_TOWER)
-#
-#func Spawn_Wizard_tower() -> void:
-	#SpawnOBj(WIZARD_TOWER)
-
-#func Spawn_Zona_level_1() -> void:
-	#SpawnOBj(ZONA_LEVEL_1)
 
 func Spawn_Zona_Main() -> void:
 	SpawnOBj(ZONA_MAIN)
@@ -56,7 +49,7 @@ func SpawnOBj(obj : PackedScene):
 	if CurrentSpawnable != null:
 		CurrentSpawnable.queue_free()
 	CurrentSpawnable = obj.instantiate()
-	CurrentSpawnable.is_in_group("")
+
 	get_tree().root.get_node("Main/World/Teste_Contrucacao/fantasma").add_child(CurrentSpawnable)
 	GameManager.CurrentState = GameManager.State.Buildling
 

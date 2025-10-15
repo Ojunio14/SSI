@@ -1,5 +1,6 @@
 extends Node
 
+signal DestruirBuild
 
 enum  State {
 	Play,

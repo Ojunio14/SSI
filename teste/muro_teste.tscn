@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtu3ay8rvpse2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6qi6e"]
+size = Vector3(1, 5, 0.255)
+
+[node name="Muro_teste" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_6qi6e")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(2.5, 1.715, 0.2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7782999, 0, 0)
+operation = 2
+size = Vector3(0.5, 1.5, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06447554, 0, 0)
+operation = 2
+size = Vector3(0.5, 1.5, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81338394, 0, 0)
+operation = 2
+size = Vector3(0.5, 1.5, 1)
